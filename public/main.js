@@ -13,7 +13,7 @@ url2 = url2.replace("http://", "");//去除http
 url2 = url2.replace("webtally", "");//去除/
 url2 = url2.split('/')[0];
 url2 = url2.replace("/", "");//去除/
-document.getElementById("imgstream").src="http://"+url2+":8001/?action=stream"
+//document.getElementById("imgstream").src="http://"+url2+":8001/?action=stream"
 
 socket.addEventListener('open', (event) => {
     console.log('WebSocket connection opened');
@@ -26,15 +26,15 @@ socket.addEventListener('message', (event) => {
 socket.addEventListener('close', (event) => {
     console.log('WebSocket connection closed');
 });
-let camflag=1
+let camflag = 1
 document.getElementById('imgstream').addEventListener('click', () => {
-        if(camflag==1){
-            camflag=2
-        }else{
-            camflag=1
-        }
-        document.getElementById("imgstream").src="http://"+url2+":800"+camflag+"/?action=stream"
-    });
+    if (camflag == 1) {
+        camflag = 2
+    } else {
+        camflag = 1
+    }
+    document.getElementById("imgstream").src = "http://" + url2 + ":800" + camflag + "/?action=stream"
+});
 var isiPad = navigator.userAgent.match(/iPad/i) !== null;
 if (isiPad) {
 
