@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Claw Machine Control</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="controls3">
+        <img src="http://192.168.50.58:8080/?action=stream" />
+        <h1></h1>
+        <div class="controls">
+            <div class="controls2">
+                <div class="button-row">
+                    <button id="up" class="ctl-button"><i class="fas fa-arrow-up"></i></button>
+                </div>
+                <div class="button-row">
+                    <button id="left" class="ctl-button" style="margin-right:80px;"><i
+                            class="fas fa-arrow-left"></i></button>
+
+                    <button id="right" class="ctl-button"><i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="button-row">
+                    <button id="down" class="ctl-button"><i class="fas fa-arrow-down"></i></button>
+                </div>
+            </div>
+            <button id="grab" class="grab-button"><i class="fas fa-hand-paper"></i></button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script>
+      
+        
+    </script>
+
+</body>
+
+</html>
