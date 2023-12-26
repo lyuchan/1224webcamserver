@@ -35,6 +35,7 @@ document.getElementById('imgstream').addEventListener('click', () => {
     }
     document.getElementById("imgstream").src = "http://" + url2 + ":800" + camflag + "/?action=stream"
 });
+
 var isiPad = navigator.userAgent.match(/iPad/i) !== null;
 if (isiPad) {
 

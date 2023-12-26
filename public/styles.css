@@ -9,6 +9,13 @@ body {
     background-color: #131313;
 }
 
+.title {
+    display: flex;
+
+    align-items: center;
+
+}
+
 .controls {
     display: flex;
 
@@ -31,6 +38,7 @@ body {
 }
 
 .controls4 {
+
     width: 400px;
     margin-left: 30px;
     display: flex;
@@ -67,6 +75,10 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.how-button {
+    padding: 10px 10px;
 }
 
 button:hover {
