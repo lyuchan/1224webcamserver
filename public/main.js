@@ -13,7 +13,7 @@ url2 = url2.replace("http://", "");//去除http
 url2 = url2.replace("webtally", "");//去除/
 url2 = url2.split('/')[0];
 url2 = url2.replace("/", "");//去除/
-//document.getElementById("imgstream").src="http://"+url2+":8001/?action=stream"
+document.getElementById("imgstream").src = "http://" + url2 + ":8002/?action=stream"
 
 socket.addEventListener('open', (event) => {
     console.log('WebSocket connection opened');
@@ -26,7 +26,7 @@ socket.addEventListener('message', (event) => {
 socket.addEventListener('close', (event) => {
     console.log('WebSocket connection closed');
 });
-let camflag = 1
+let camflag = 2
 document.getElementById('imgstream').addEventListener('click', () => {
     if (camflag == 1) {
         camflag = 2
@@ -130,7 +130,7 @@ if (isiPad) {
     let upflag = false, downflag = false, leftflag = false, rightflag = false, gflag = false;
     document.addEventListener('keydown', function (event) {
         // 檢查按下的按鍵是否為 "a"
-        if (event.key === 'w') {
+        if (event.key === 'w' || event.key === 'W') {
             // 觸發按鈕點擊事件
 
             document.getElementById('up').classList.add('active');
@@ -139,7 +139,7 @@ if (isiPad) {
                 upflag = true;
             }
         }
-        if (event.key === 'a') {
+        if (event.key === 'a' || event.key === 'A') {
             // 觸發按鈕點擊事件
             document.getElementById('left').classList.add('active');
             if (!leftflag && !rightflag) {
@@ -147,7 +147,7 @@ if (isiPad) {
                 leftflag = true
             }
         }
-        if (event.key === 's') {
+        if (event.key === 's' || event.key === 'S') {
             // 觸發按鈕點擊事件
             document.getElementById('down').classList.add('active');
             if (!downflag && !upflag) {
@@ -155,7 +155,7 @@ if (isiPad) {
                 downflag = true;
             }
         }
-        if (event.key === 'd') {
+        if (event.key === 'd' || event.key === 'D') {
             // 觸發按鈕點擊事件
             document.getElementById('right').classList.add('active');
             if (!rightflag && !leftflag) {
@@ -174,25 +174,25 @@ if (isiPad) {
     });
     document.addEventListener('keyup', function (event) {
         // 檢查按下的按鍵是否為 "a"
-        if (event.key === 'w') {
+        if (event.key === 'w' || event.key === 'W') {
             // 觸發按鈕點擊事件
             document.getElementById('up').classList.remove('active');
             sendcmd(0, false);
             upflag = false;
         }
-        if (event.key === 'a') {
+        if (event.key === 'a' || event.key === 'A') {
             // 觸發按鈕點擊事件
             document.getElementById('left').classList.remove('active');
             sendcmd(2, false);
             leftflag = false;
         }
-        if (event.key === 's') {
+        if (event.key === 's' || event.key === 'S') {
             // 觸發按鈕點擊事件
             document.getElementById('down').classList.remove('active');
             sendcmd(1, false);
             downflag = false;
         }
-        if (event.key === 'd') {
+        if (event.key === 'd' || event.key === 'D') {
             // 觸發按鈕點擊事件
             document.getElementById('right').classList.remove('active');
             sendcmd(3, false);

@@ -1,3 +1,7 @@
+const portPath = 'COM18'
+const { SerialPort } = require('serialport')
+const serialport = new SerialPort({ path: portPath, baudRate: 115200 })
+
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
@@ -7,7 +11,9 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 const port = 3000;
-
+serialport.on('data', function (data) {
+  console.log(data.toString());
+});
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -20,7 +26,8 @@ wss.on('connection', (ws) => {
 
   // 监听客户端发送的消息
   ws.on('message', (message) => {
-    console.log(`Received: ${message}`);
+    // console.log(`Received: ${message}`);
+    serialport.write(message + "\r\n")
   });
 
   // 监听连接关闭事件
