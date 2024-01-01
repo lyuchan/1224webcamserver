@@ -11,6 +11,7 @@ var socket = new WebSocket(url)//+ ":8765")
 let url2 = urlold.replace("https://", "");//去除https
 url2 = url2.replace("http://", "");//去除http
 url2 = url2.replace("webtally", "");//去除/
+url2 = url2.replace(":8765", "");//去除/
 url2 = url2.split('/')[0];
 url2 = url2.replace("/", "");//去除/
 document.getElementById("imgstream").src = "http://" + url2 + ":8002/?action=stream"
