@@ -7,7 +7,7 @@ url = url.replace("webtally", "");//去除/
 url = url.split('/')[0];
 url = url.replace("/", "");//去除/
 url = "ws://" + url;//加入ws://
-var socket = new WebSocket(url+":8765")
+var socket = new WebSocket(url)//+ ":8765")
 let url2 = urlold.replace("https://", "");//去除https
 url2 = url2.replace("http://", "");//去除http
 url2 = url2.replace("webtally", "");//去除/
@@ -213,4 +213,16 @@ function sendcmd(cmd, flag) {
         "flag": flag
     })
     socket.send(msg);
+}
+
+function showPopup() {
+    var modal = document.getElementById('myModal');
+    var messageElement = document.getElementById('popupMessage');
+    messageElement.textContent = '恭喜成功夾取娃娃';
+    modal.style.display = 'block';
+}
+
+function closePopup() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'none';
 }

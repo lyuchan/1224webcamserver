@@ -115,3 +115,47 @@ footer {
     padding: 5px 0;
     font-size: 12px;
 }
+
+/* 將彈窗設為隱藏 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* 調整彈窗樣式 */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #353535;
+    padding: 20px;
+    border-radius: 50px;
+    width: 500px;
+    height: 380px;
+    border: 5px solid #FFF;
+    text-align: center;
+}
+
+.poptext {
+    font-size: 30px;
+    color: #fff;
+}
+
+/* 關閉按鈕樣式 */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
