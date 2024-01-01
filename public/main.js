@@ -14,13 +14,18 @@ url2 = url2.replace("webtally", "");//去除/
 url2 = url2.split('/')[0];
 url2 = url2.replace("/", "");//去除/
 document.getElementById("imgstream").src = "http://" + url2 + ":8002/?action=stream"
-
+let getit = false;
 socket.addEventListener('open', (event) => {
     console.log('WebSocket connection opened');
 });
 
 socket.addEventListener('message', (event) => {
     console.log(`Received: ${event.data}`);
+    if (getit == true) {
+        if (event.data = "getit") {
+            showPopup();
+        }
+    }
 });
 
 socket.addEventListener('close', (event) => {
@@ -43,49 +48,59 @@ if (isiPad) {
     document.getElementById('up').addEventListener('touchstart', () => {
         document.getElementById('up').classList.add('active');
         sendcmd(0, true);
+        getit = false;
     });
 
     document.getElementById('down').addEventListener('touchstart', () => {
         document.getElementById('down').classList.add('active');
         sendcmd(1, true);
+        getit = false;
     });
 
     document.getElementById('left').addEventListener('touchstart', () => {
         document.getElementById('left').classList.add('active');
         sendcmd(2, true);
+        getit = false;
     });
 
     document.getElementById('right').addEventListener('touchstart', () => {
         document.getElementById('right').classList.add('active');
         sendcmd(3, true);
+        getit = false;
     });
 
     document.getElementById('up').addEventListener('touchend', () => {
         sendcmd(0, false);
+        getit = false;
         document.getElementById('up').classList.remove('active');
     });
 
     document.getElementById('down').addEventListener('touchend', () => {
         sendcmd(1, false);
+        getit = false;
         document.getElementById('down').classList.remove('active');
     });
 
     document.getElementById('left').addEventListener('touchend', () => {
         sendcmd(2, false);
+        getit = false;
         document.getElementById('left').classList.remove('active');
     });
 
     document.getElementById('right').addEventListener('touchend', () => {
         sendcmd(3, false);
+        getit = false;
         document.getElementById('right').classList.remove('active');
     });
 
     document.getElementById('grab').addEventListener('touchstart', () => {
         sendcmd(4, true);
+        getit = true;
         document.getElementById('grab').classList.add('active');
     });
     document.getElementById('grab').addEventListener('touchend', () => {
         document.getElementById('grab').classList.remove('active');
+        getit = true;
     });
 
 
@@ -94,38 +109,47 @@ if (isiPad) {
 
     document.getElementById('up').addEventListener('mousedown', () => {
         sendcmd(0, true);
+        getit = false;
     });
 
     document.getElementById('down').addEventListener('mousedown', () => {
         sendcmd(1, true);
+        getit = false;
     });
 
     document.getElementById('left').addEventListener('mousedown', () => {
         sendcmd(2, true);
+        getit = false;
     });
 
     document.getElementById('right').addEventListener('mousedown', () => {
         sendcmd(3, true);
+        getit = false;
     });
 
     document.getElementById('up').addEventListener('mouseup', () => {
         sendcmd(0, false);
+        getit = false;
     });
 
     document.getElementById('down').addEventListener('mouseup', () => {
         sendcmd(1, false);
+        getit = false;
     });
 
     document.getElementById('left').addEventListener('mouseup', () => {
         sendcmd(2, false);
+        getit = false;
     });
 
     document.getElementById('right').addEventListener('mouseup', () => {
         sendcmd(3, false);
+        getit = false;
     });
 
     document.getElementById('grab').addEventListener('mousedown', () => {
         sendcmd(4, true);
+        getit = true;
     });
     let upflag = false, downflag = false, leftflag = false, rightflag = false, gflag = false;
     document.addEventListener('keydown', function (event) {
