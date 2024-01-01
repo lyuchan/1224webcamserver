@@ -26,8 +26,14 @@ wss.on('connection', (ws) => {
 
   // 监听客户端发送的消息
   ws.on('message', (message) => {
-     console.log(`Received: ${message}`);
-    serialport.write(message + "\r\n")
+    console.log(`Received: ${message}`);
+    let jsonmsg = JSON.parse(message)
+    if (jsonmsg.get == "get") {
+      console.log("get it!")
+    } else {
+      serialport.write(message + "\r\n")
+    }
+
   });
 
   // 监听连接关闭事件
