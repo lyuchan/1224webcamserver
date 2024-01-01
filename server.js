@@ -1,4 +1,4 @@
-const portPath = 'COM18'
+const portPath = '/dev/ttyACM0'
 const { SerialPort } = require('serialport')
 const serialport = new SerialPort({ path: portPath, baudRate: 115200 })
 
@@ -10,7 +10,7 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-const port = 3000;
+const port = 8765;
 serialport.on('data', function (data) {
   console.log(data.toString());
 });
@@ -26,7 +26,7 @@ wss.on('connection', (ws) => {
 
   // 监听客户端发送的消息
   ws.on('message', (message) => {
-    // console.log(`Received: ${message}`);
+     console.log(`Received: ${message}`);
     serialport.write(message + "\r\n")
   });
 
