@@ -26,10 +26,11 @@ wss.on('connection', (ws) => {
 
   // 监听客户端发送的消息
   ws.on('message', (message) => {
-    console.log(`Received: ${message}`);
+    //console.log(`Received: ${message}`);
     let jsonmsg = JSON.parse(message)
     if (jsonmsg.get == "get") {
       console.log("get it!")
+      send("getit")
     } else {
       serialport.write(message + "\r\n")
     }
@@ -45,3 +46,11 @@ wss.on('connection', (ws) => {
 server.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+function send(data) {
+  let clients = wss.clients;
+  clients.forEach((client) => {
+    let sendData = data
+    client.send(sendData);//回去的資料
+    // sock2.send(sendData);
+  });
+}
