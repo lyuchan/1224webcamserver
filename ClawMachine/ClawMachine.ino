@@ -20,7 +20,7 @@ void setup() {
   ws_stop();
   ud_stop();
   open();
-  setled(255);
+  setled(100);
   //end();
 }
 
