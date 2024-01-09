@@ -156,6 +156,9 @@ if (isiPad) {
     document.addEventListener('keydown', function (event) {
         // 檢查按下的按鍵是否為 "a"
         console.log(event.key);
+        if (event.key === "Enter") {
+            document.getElementById('imgstream').onclick();
+        }
         if (event.key === 'w' || event.key === 'W') {
             // 觸發按鈕點擊事件
             document.getElementById('up').classList.add('active');
