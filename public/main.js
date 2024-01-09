@@ -22,10 +22,10 @@ socket.addEventListener('open', (event) => {
 
 socket.addEventListener('message', (event) => {
     console.log(`Received: ${event.data}`);
-    if (getit == true) {
+    //if (getit == true) {
         if (event.data = "getit") {
             showPopup();
-        }
+      //  }
     }
 });
 
