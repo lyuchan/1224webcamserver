@@ -155,9 +155,9 @@ if (isiPad) {
     let upflag = false, downflag = false, leftflag = false, rightflag = false, gflag = false;
     document.addEventListener('keydown', function (event) {
         // 檢查按下的按鍵是否為 "a"
+        console.log(event.key);
         if (event.key === 'w' || event.key === 'W') {
             // 觸發按鈕點擊事件
-
             document.getElementById('up').classList.add('active');
             if (!upflag && !downflag) {
                 sendcmd(0, true);
